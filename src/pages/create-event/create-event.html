@@ -14,43 +14,49 @@
 
 
 <ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Nome</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Descrição</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
     <ion-grid>
-        <ion-row>
-          <ion-col text-center>
-            <!-- <img [src]="place.imageUrl"> -->
+      <ion-row>
+        <ion-col col-12 style="margin: 15px 0px;
+                font-size: 16px;
+                text-align: center;">
+            Data Selecionada: {{textData}}
           </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
+      </ion-row>
+    </ion-grid>
+    <button
+      ion-button
+      block
+      (click)="goToMaps()">Procurar Localidade</button>
 
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <!-- <sebm-google-map
-              [latitude]="place.location.lat"
-              [longitude]="place.location.lng"
-              [zoom]="16">
-              <sebm-google-map-marker
-                [latitude]="place.location.lat"
-                [longitude]="place.location.lng"></sebm-google-map-marker>
-            </sebm-google-map> -->
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <button
-              ion-button
-              block
-              (click)="onLeave()">Leave</button>
-          </ion-col>
-          <ion-col>
+  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+          <button
+          ion-button
+          block
+          color="danger"
+          (click)="onLeave()">Cancelar</button>
+      </ion-col>
+      <ion-col col-6>
+          <button
+          ion-button
+          block
+          color="secondary"
+          (click)="onSave()">Salvar</button>
+      </ion-col>
+      </ion-row>
+  </ion-grid>
 
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-  <button
-  ion-button
-  block
-  (click)="onLeave()">Leave</button>
 </ion-content>
