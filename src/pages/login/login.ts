@@ -26,8 +26,8 @@ export class LoginPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     private toastCtrl: ToastController, private fireAuth : AngularFireAuth,
     private db : AngularFireDatabase) 
-  {
-  }
+  {}
+
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -45,21 +45,12 @@ export class LoginPage {
   signIn()
   {
     //this.navCtrl.push(TabsPage);
-    this.fireAuth.auth.signInAndRetrieveDataWithEmailAndPassword(this.email, this.password)
-    .then(
-      (data) =>
-      {
-        console.log(data);
-        this.navCtrl.push(TabsPage);
-      });
+    this.navCtrl.push(TabsPage);
+    // this.fireAuth.auth.signInAndRetrieveDataWithEmailAndPassword(this.email, this.password)
+    // .then(
+    //   (data) =>
+    //   {
+    //     console.log(data);
+    //   });
     }
-    
-    testDB()
-    {
-      const usersRef = this.db.object('events/event1');
-      usersRef.update(
-        {year:2011})
-        .then(data => console.log(data));
-    }
-    
   }
