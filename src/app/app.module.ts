@@ -8,11 +8,13 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login/login";
+import { VacinasPage } from "../pages/vacinas/vacinas";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
+import { AngularFireDatabaseModule } from "angularfire2/database"
 import { environment } from "../environments/environments";
 
 @NgModule({
@@ -22,13 +24,15 @@ import { environment } from "../environments/environments";
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    VacinasPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,7 +41,8 @@ import { environment } from "../environments/environments";
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    VacinasPage
   ],
   providers: [
     StatusBar,
