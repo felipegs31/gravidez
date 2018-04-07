@@ -8,12 +8,14 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login/login";
+import { CreateEventPage } from "../pages/create-event/create-event";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { environment } from "../environments/environments";
+import { CalendarModule } from 'ionic3-calendar-en';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { environment } from "../environments/environments";
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    CreateEventPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    CalendarModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],
@@ -37,7 +41,8 @@ import { environment } from "../environments/environments";
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    CreateEventPage
   ],
   providers: [
     StatusBar,

@@ -1,11 +1,27 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Calendário
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-calendar #calendar [events]="currentEvents" (onDaySelect)="onDaySelect($event)" (onMonthSelect)="onMonthSelect($event)"></ion-calendar>
+  <button
+  ion-button
+  block
+  (click)="addEvent()">Adicionar Evento</button>
+
+  <ion-list>
+    <ion-item *ngFor="let ev of filteredEvents;">
+      <!-- <ion-thumbnail item-start>
+        <img src="img/thumbnail-totoro.png">
+      </ion-thumbnail> -->
+      <h2>{{ev.name}}</h2>
+      <p>{{ev.description}}</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

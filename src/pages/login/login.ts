@@ -23,7 +23,7 @@ export class LoginPage {
   email:any;
   password:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
     private toastCtrl: ToastController, private fireAuth : AngularFireAuth) {
   }
 
@@ -42,14 +42,14 @@ export class LoginPage {
 
   signIn()
   {
-    //this.navCtrl.push(TabsPage);
-    this.fireAuth.auth.signInAndRetrieveDataWithEmailAndPassword(this.email, this.password)
-    .then(
-      (data) =>
-      {
-        console.log(data);
-        this.navCtrl.push(TabsPage);
-        });
+    this.navCtrl.push(TabsPage);
+    // this.fireAuth.auth.signInAndRetrieveDataWithEmailAndPassword(this.email, this.password)
+    // .then(
+    //   (data) =>
+    //   {
+    //     console.log(data);
+    //     this.navCtrl.push(TabsPage);
+    //     });
   }
 
 }
