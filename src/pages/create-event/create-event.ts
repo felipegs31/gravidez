@@ -31,15 +31,8 @@ export class CreateEventPage {
     this.selectedDate.year = this.navParams.get('year');
     this.selectedDate.month = this.navParams.get('month');
     this.selectedDate.date = this.navParams.get('date');
-    this.selectedDate.lat = this.navParams.get('lat');
-    this.selectedDate.long = this.navParams.get('long');    
     this.dateToText();
     
-  }
-
-  ionViewDidLoad() {
-    this.selectedDate.lat = this.navParams.get('lat');
-    this.selectedDate.long = this.navParams.get('long');    
   }
 
   dateToText() {
