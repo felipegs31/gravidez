@@ -15,7 +15,7 @@ export class CreateEventPage {
   tipoEventos = [
     'Vacina',
     'Ultrassonografia',
-    'Ecocardiograma'    
+    'Atividades'    
     ]
   tipoEv = "";
   constructor(public navCtrl: NavController,

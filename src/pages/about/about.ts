@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import {CreateEventPage} from '../create-event/create-event';
+import * as moment from 'moment';
 
 @Component({
   selector: 'page-about',
@@ -14,17 +15,25 @@ export class AboutPage implements OnInit {
   selectedDateCalendar = {year: 0,month: 0, date:0};
   filteredEvents = [];
   currentEvents = [];
-
+  filteredEventsSemana = [];
+  eventsSemana = [];
+  dataGestacao = {
+    name: "Concepção",
+    description: "Descubriu que está grávida",
+    year: 2018,
+    month: 1,
+    date: 19,
+  }
+  weekDifference = 0;
   constructor(public navCtrl: NavController,
             private modalCtrl: ModalController) {
-              this.events = [{
-                name: "Ultrasonografia BHCG",
-                description: "importante para o bebe",
+              this.events = [
+              {
+                name: "Concepção",
+                description: "Descubriu que está grávida",
                 year: 2018,
-                month: 3,
-                date: 10,
-                long: "long",
-                lat: "lat"
+                month: 1,
+                date: 19,
               },
               {
                 name: "Ultrasonografia BHCG",
@@ -36,7 +45,16 @@ export class AboutPage implements OnInit {
                 lat: "lat"
               },
               {
-                name: "Ultrasonografia BHCG",
+                name: "Exame de Sangue",
+                description: "importante para o bebe",
+                year: 2018,
+                month: 3,
+                date: 10,
+                long: "long",
+                lat: "lat"
+              },
+              {
+                name: "Ultrasonografia morfológico",
                 description: "importante para o bebe",
                 year: 2018,
                 month: 3,
@@ -45,14 +63,43 @@ export class AboutPage implements OnInit {
                 lat: "lat"
               },
               {
-                name: "Ultrasonografia BHCG",
+                name: "Ultrasom 3D",
                 description: "importante para o bebe",
                 year: 2018,
                 month: 3,
                 date: 25,
                 long: "long",
                 lat: "lat"
-              }]
+              }];
+
+              this.eventsSemana = [
+                {
+                  semana: 1,
+                  name: 'Tipagem de sangue',
+                  description: 'É um exame feito para investigar se a gestante é Rh negativo'
+                },
+                {
+                  semana: 4,
+                  name: 'Cultura de urina',
+                  description: 'Diagnostica infecção urinária e diabetes.'
+                },
+                {
+                  semana: 4,
+                  name: 'Protoparasitológico de fezes',
+                  description: 'Pesquisa a presença de verminoses que possam roubar os nutrientes do feto.'
+                },
+                {
+                  semana: 6,
+                  name: 'Ultra-som',
+                  description: 'Avalia a correta localização da gestação'
+                },
+                {
+                  semana: 8,
+                  name: 'Exame de Sangue',
+                  description: 'doenças genéticas como a Síndrome de Down'
+                },
+              ]
+
               this.setCurrentEvents(this.events);
    }
 
@@ -72,6 +119,23 @@ export class AboutPage implements OnInit {
     console.log(this.filteredEvents);
   }
 
+  countWeek( dataGestacao, selectedDateCalendar) {
+    let gestacao = moment([dataGestacao.year, dataGestacao.month, dataGestacao.date])
+    let target = moment([selectedDateCalendar.year, selectedDateCalendar.month, selectedDateCalendar.date]);
+    this.weekDifference = gestacao.diff(target, 'week');
+    this.weekDifference = -this.weekDifference;
+    console.log(this.weekDifference);
+  }
+
+  setWeekCurrentEvents(eventsSemana) {
+    this.filteredEventsSemana = [];
+    for(let i=0; i<eventsSemana.length; i++) {
+      if(eventsSemana[i].semana === this.weekDifference ) {
+        this.filteredEventsSemana.push(eventsSemana[i]);       
+      }
+    }
+  }  
+
   onDaySelect(event) {
     console.log(event);
     this.selectedDateCalendar = {
@@ -79,7 +143,9 @@ export class AboutPage implements OnInit {
       month: event.month,
       date: event.date
     }
-    this.displayDayEvents(this.events);
+    this.displayDayEvents(this.events);    
+    this.countWeek(this.dataGestacao, this.selectedDateCalendar);
+    this.setWeekCurrentEvents(this.eventsSemana);
   }
 
   addEvent(){
