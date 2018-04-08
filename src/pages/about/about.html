@@ -13,9 +13,9 @@
   block
   (click)="addEvent()">Adicionar Evento</button>
 
-  
+
   <ion-list *ngIf="filteredEvents.length > 0">
-    <div class="headerList">
+    <div class="headerList" style="color: #ABCACC">
       Eventos Agendados
     </div>
     <ion-item *ngFor="let ev of filteredEvents;">
@@ -29,13 +29,13 @@
   </ion-list>
 
   <ion-list *ngIf="filteredEventsSemana.length > 0">
-    <div class="headerList">
+    <div class="headerList" style="color: #825599">
       Eventos Recomendados para semana {{weekDifference}}
     </div>
     <ion-item *ngFor="let ev of filteredEventsSemana;">
       <h2>{{ev.name}}</h2>
       <p>{{ev.description}}</p>
-      <button ion-button clear item-end>Agendar</button>
+      <button ion-button clear item-end style="background-color : #4C335B">Agendar</button>
     </ion-item>
   </ion-list>
 

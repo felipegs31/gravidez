@@ -94,6 +94,16 @@ export class AboutPage implements OnInit {
                   description: 'Avalia a correta localização da gestação'
                 },
                 {
+                  semana: 7,
+                  name: 'Protoparasitológico',
+                  description: 'Pesquisa a presença de verminoses'
+                },
+                {
+                  semana: 7,
+                  name: 'Ultra-som',
+                  description: 'Avalia a correta localização da gestação'
+                },
+                {
                   semana: 8,
                   name: 'Exame de Sangue',
                   description: 'doenças genéticas como a Síndrome de Down'
@@ -131,10 +141,10 @@ export class AboutPage implements OnInit {
     this.filteredEventsSemana = [];
     for(let i=0; i<eventsSemana.length; i++) {
       if(eventsSemana[i].semana === this.weekDifference ) {
-        this.filteredEventsSemana.push(eventsSemana[i]);       
+        this.filteredEventsSemana.push(eventsSemana[i]);
       }
     }
-  }  
+  }
 
   onDaySelect(event) {
     console.log(event);
@@ -143,7 +153,7 @@ export class AboutPage implements OnInit {
       month: event.month,
       date: event.date
     }
-    this.displayDayEvents(this.events);    
+    this.displayDayEvents(this.events);
     this.countWeek(this.dataGestacao, this.selectedDateCalendar);
     this.setWeekCurrentEvents(this.eventsSemana);
   }
