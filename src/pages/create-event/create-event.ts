@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, ViewController,ModalController } from 'ionic-angular';
+import { MapPage } from '../map/map';
 /**
  * Generated class for the CreateEventPage page.
  *
@@ -18,17 +18,28 @@ export class CreateEventPage {
   textData;
   months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
   selectedDate = {year: 0, date: 0, month: 0}
+  tipoEventos = [
+    'Vacina',
+    'Ultrassonografia',
+    'Ecocardiograma'    
+    ]
+  tipoEv = "";
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private viewCtrl: ViewController) {
+              private viewCtrl: ViewController,
+              private modalCtrl: ModalController) {
     this.selectedDate.year = this.navParams.get('year');
     this.selectedDate.month = this.navParams.get('month');
     this.selectedDate.date = this.navParams.get('date');
+    this.selectedDate.lat = this.navParams.get('lat');
+    this.selectedDate.long = this.navParams.get('long');    
     this.dateToText();
+    
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateEventPage');
+    this.selectedDate.lat = this.navParams.get('lat');
+    this.selectedDate.long = this.navParams.get('long');    
   }
 
   dateToText() {
@@ -40,11 +51,24 @@ export class CreateEventPage {
   }
 
   onSave() {
-    console.log();
+    console.log(this.selectedDate);
   }
 
   goToMaps() {
+    const modal = this.modalCtrl.create(MapPage, {tipoEv: this.tipoEv} );
+      modal.present();
+      modal.onDidDismiss(
+        () => {
+        }
+      );
+  }
 
+  disableButtonMap() {
+    if(this.tipoEv != "") {
+      return false;
+    } else {
+      return true;
+    }
   }
 
 }

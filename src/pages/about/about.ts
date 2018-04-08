@@ -57,10 +57,7 @@ export class AboutPage implements OnInit {
    }
 
   ngOnInit(){
-
-
     this.displayDayEvents(this.events);
-
   }
 
   displayDayEvents(events) {
@@ -87,7 +84,7 @@ export class AboutPage implements OnInit {
 
   addEvent(){
     const modal = this.modalCtrl.create(CreateEventPage, { year: this.selectedDateCalendar.year,
-      date: this.selectedDateCalendar.date, month: this.selectedDateCalendar.month});
+    date: this.selectedDateCalendar.date, month: this.selectedDateCalendar.month});
     modal.present();
     modal.onDidDismiss(
       () => {

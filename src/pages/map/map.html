@@ -1,0 +1,45 @@
+
+
+<ion-header>
+    <ion-navbar>
+      <ion-title>Selecionar Localização</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content padding>
+      <agm-map [latitude]="lat"
+               [longitude]="long"
+               [zoom]="zoom"
+               (click)="clickedMap">
+          <agm-marker
+            *ngFor="let place of typePlaces; let i = index"
+            (markerClick)="clickedMarker(place, i)"
+            [latitude]="place.lat"
+            [longitude]="place.long">
+              <agm-info-window #infoWindow>
+                <strong>{{selectedPlace.name}}</strong><br>
+                <strong>Preço:</strong> {{selectedPlace.preco | currency:'BRL'}}
+                <strong>Avaliação:</strong> {{selectedPlace.avaliacao}}
+              </agm-info-window>
+          </agm-marker>
+        </agm-map>
+
+        <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+          <button
+          ion-button
+          block
+          color="danger"
+          (click)="onLeave()">Cancelar</button>
+      </ion-col>
+      <ion-col col-6>
+          <button
+          ion-button
+          block
+          color="secondary"
+          (click)="onSave()">Salvar</button>
+      </ion-col>
+      </ion-row>
+  </ion-grid>
+  </ion-content>
