@@ -6,23 +6,29 @@
 
 <ion-content padding>
   <ion-row class="feeling" justify-content-center align-items-center>
-    <ion-col col-8>
+    <ion-col>
       <p>
-        <font size="3">Como você está se sentindo?</font>
+        <font size="3">Bia, como você está se sentindo?</font>
       </p>
-    </ion-col>
-    <ion-col col-2>
-      <button ion-fab outline color="secondary" (tap)="presentToast()">
-          <ion-icon name="happy" ></ion-icon>
-      </button>
-    </ion-col>
-    <ion-col col-2>
-      <button ion-fab outline color="danger" (tap)="doCheckbox()">
-        <ion-icon name="sad" ></ion-icon>
-      </button>
-    </ion-col>
+    </ion-col>  
   </ion-row>
-  <img src="assets/imgs/pregnant.png">
+  <ion-row>
+      
+      <ion-col col-3></ion-col>
+      <ion-col>
+          <button ion-fab outline color="secondary" (tap)="presentToast()">
+              <ion-icon name="happy" ></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col >
+          <button ion-fab outline color="danger" (tap)="doCheckbox()">
+            <ion-icon name="sad" ></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-3></ion-col>
+
+  </ion-row>
+  <img src="assets/imgs/gravida-01.png">
   <ion-row class="data" justify-content-center align-items-center>
     <ion-col col-3>
       <p>
