@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login/login";
 import { VacinasPage } from "../pages/vacinas/vacinas";
+import { VacineModalPage} from "../pages/vacine-modal/vacine-modal";
 import { CreateEventPage } from "../pages/create-event/create-event";
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -28,7 +29,9 @@ import { CalendarModule } from 'ionic3-calendar-en';
     TabsPage,
     LoginPage,
     VacinasPage,
-    CreateEventPage
+    CreateEventPage,
+    VacineModalPage
+
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ import { CalendarModule } from 'ionic3-calendar-en';
     TabsPage,
     LoginPage,
     VacinasPage,
+    VacineModalPage,
     CreateEventPage
   ],
   providers: [
