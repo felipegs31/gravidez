@@ -16,4 +16,10 @@ export class PacienteService
     {
         return this.paciente;
     }
+
+    addEvento(evento : any)
+    {
+        this.paciente.events.push(evento);
+    }
+
 }
