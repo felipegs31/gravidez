@@ -1,3 +1,5 @@
 {
-    "events" : true
+    "eventos" : true,
+    "vacinas" : true,
+    "pacientes": true
 }

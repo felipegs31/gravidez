@@ -18,6 +18,7 @@ import {
 import {
   AngularFireDatabase
 } from "angularfire2/database";
+import { Evento } from "../../models/Evento";
 
 
 /**
@@ -57,11 +58,15 @@ export class LoginPage {
 
   signIn() {
     //this.navCtrl.push(TabsPage);
-    this.fireAuth.auth.signInAndRetrieveDataWithEmailAndPassword(this.email, this.password)
-    .then(
-      (data) =>
-      {
-        console.log(data);
-      });
+    // this.fireAuth.auth.signInAndRetrieveDataWithEmailAndPassword(this.email, this.password)
+    // .then(
+    //   (data) =>
+    //   {
+    //     console.log(data);
+    //   });
+      const shirtsRef = this.db.list<Evento>('eventos');
+      shirtsRef.push(new Evento("Event1",2018,1,12,"Complex description",10,12));
+      // shirtsRef.snapshotChanges().map(changes => {return changes.map(c => console.log(c))})
+      
   }
 }
