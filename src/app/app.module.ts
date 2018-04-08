@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login/login";
 import { VacinasPage } from "../pages/vacinas/vacinas";
+import { VacineModalPage} from "../pages/vacine-modal/vacine-modal";
 import { CreateEventPage } from "../pages/create-event/create-event";
 import { MapPage } from "../pages/map/map";
 
@@ -20,6 +21,8 @@ import { AngularFireDatabaseModule } from "angularfire2/database"
 import { environment } from "../environments/environments";
 import { CalendarModule } from 'ionic3-calendar-en';
 import { AgmCoreModule } from '@agm/core';
+import { DatabaseProvider } from '../providers/database/database';
+import { PacienteService } from '../services/PacienteService';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { AgmCoreModule } from '@agm/core';
     LoginPage,
     VacinasPage,
     CreateEventPage,
-    MapPage
+    MapPage,
+    VacineModalPage
   ],
   imports: [
     BrowserModule,
@@ -54,12 +58,16 @@ import { AgmCoreModule } from '@agm/core';
     LoginPage,
     VacinasPage,
     CreateEventPage,
-    MapPage
+    MapPage,
+    VacineModalPage,
+    CreateEventPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DatabaseProvider,
+    PacienteService
   ]
 })
 export class AppModule {}

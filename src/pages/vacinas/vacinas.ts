@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { VacineModalPage } from "../vacine-modal/vacine-modal";
 
 /**
  * Generated class for the VacinasPage page.
@@ -15,11 +16,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class VacinasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VacinasPage');
+  }
+
+  onClickInfo()
+  {
+    let modal = this.modalCtrl.create(VacineModalPage);
+    modal.present();
   }
 
 }
