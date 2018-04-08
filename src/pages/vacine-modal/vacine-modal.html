@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Vacine</ion-title>
+    <ion-title>Hepatite B</ion-title>
     <ion-buttons end>
         <button ion-button  (tap)="close()">
             <ion-icon name="close"></ion-icon>
@@ -9,16 +9,30 @@
           </button>
     </ion-buttons>
   </ion-navbar>
-  
-  
 </ion-header>
 
 
 <ion-content padding>
 
-  <h2>
-    Vacina
-  </h2>
-  <p> Description of vaccine</p>
+  <ion-list>
+    <ion-item>
+      <ion-label > Data</ion-label>
+      <p item-end>21/02/2018</p>
+    </ion-item>
+
+    <ion-item>
+        <ion-label> Status</ion-label>
+        <p item-end> Marcado</p>
+      </ion-item>
+    
+  </ion-list>
+  <ion-title>
+    Descrição
+  </ion-title>
+  <p padding>
+      É um exame feito para investigar se a gestante é Rh negativo. 
+      Nesse caso, será necessário tomar uma vacina para evitar que seu organismo 
+      ataque os glóbulos vermelhos do filho.
+  </p>
 
 </ion-content>

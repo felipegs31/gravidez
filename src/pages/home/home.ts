@@ -34,6 +34,17 @@ export class HomePage {
     toast.present();
   }
 
+
+  doAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Já pensou em Yoga ?',
+      subTitle: 'O yoga pode auxiliar a ter um parto saudável e seguro, dentre outras vantagens.',
+      buttons: ['Gostei']
+    });
+
+    alert.present();
+  }
+
   doCheckbox() {
     let alert = this.alertCtrl.create();
     alert.setTitle('Which planets have you visited?');
@@ -76,6 +87,7 @@ export class HomePage {
         this.testCheckboxOpen = false;
         this.testCheckboxResult = data;
         this.sendFeelingsToDB(data);
+        this.doAlert();
       }
     });
     

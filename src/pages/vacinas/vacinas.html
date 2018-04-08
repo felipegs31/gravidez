@@ -14,31 +14,75 @@
 
 <ion-content padding>
 
-    <ion-grid>
-        <ion-row >
-          <ion-col col-3 align-self-center	>
-              BCG
-          </ion-col	>
-          <ion-col col-6 align-self-center	>
-            03, Jan, 2018
-        </ion-col>
-        <ion-col align-self-center	>
-          <button ion-button (tap)="onClickInfo()"> INFO </button>
-      </ion-col>  
-        </ion-row>
+  <ion-list>
 
-        <ion-row >
-            <ion-col col-3 align-self-center	>
-                Meningite
-            </ion-col>
-            <ion-col col-6 align-self-center	>
-              04, Fev, 2018
+    <ion-list-header>
+      Semana 1
+    </ion-list-header>
+    <ion-item>
+        <ion-row>
+          <ion-col col-8 align-self-center>
+              Hepatite B
           </ion-col>
-          <ion-col align-self-stretch>
-            <button ion-button > INFO </button>
-        </ion-col>  
+        
+          <ion-col align-self-center>
+            <button ion-button (tap)="onClickInfo()"> INFO </button>
+          </ion-col>
+        </ion-row>
+    </ion-item>
+    <ion-item>
+        <ion-row>
+            <ion-col col-8 align-self-center>
+                Influenza
+            </ion-col>
+         
+            <ion-col align-self-stretch>
+              <button ion-button> INFO </button>
+            </ion-col>
           </ion-row>
+    </ion-item>
+  </ion-list>
 
-      </ion-grid>
+  <ion-list>
+
+      <ion-list-header>
+        Semana 2
+      </ion-list-header>
+      <ion-item>
+          <ion-row>
+            <ion-col col-8 align-self-center>
+                Hepatite A
+            </ion-col>
+            <ion-col align-self-center>
+              <button ion-button > INFO </button>
+            </ion-col>
+          </ion-row>
+      </ion-item>
+      <ion-item>
+          <ion-row>
+              <ion-col col-8 align-self-center>
+                  Pneumocócicas
+              </ion-col>
+              <ion-col align-self-stretch>
+                <button ion-button> INFO </button>
+              </ion-col>
+            </ion-row>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+    <ion-list-header>
+        Semana 3
+      </ion-list-header>
+      <ion-item>
+          <ion-row>
+            <ion-col col-8 align-self-center>
+                Febre amarela
+            </ion-col>
+            <ion-col align-self-center>
+              <button ion-button > INFO </button>
+            </ion-col>
+          </ion-row>
+      </ion-item>
+    </ion-list>
 
 </ion-content>
