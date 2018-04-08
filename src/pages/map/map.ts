@@ -14,7 +14,7 @@ export class MapPage implements OnInit {
   zoom: number = 16;
   infoWindow;
   typePlaces = [];
-  selectedPlace = {name:'', preco: 0, avaliacao: 0, planoSaude:''}
+  selectedPlace = {name:'', preco: 0, avaliacao: 0, planoSaude:'', lat:0, long: 0}
   places = [{
     type: 'Ultrassonografia',
     name:'Clínica Médica Popular RJ',
