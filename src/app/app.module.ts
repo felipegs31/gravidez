@@ -19,6 +19,8 @@ import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from "angularfire2/database"
 import { environment } from "../environments/environments";
 import { CalendarModule } from 'ionic3-calendar-en';
+import { DatabaseProvider } from '../providers/database/database';
+import { PacienteService } from '../services/PacienteService';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { CalendarModule } from 'ionic3-calendar-en';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DatabaseProvider,
+    PacienteService
   ]
 })
 export class AppModule {}

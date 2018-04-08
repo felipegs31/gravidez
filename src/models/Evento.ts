@@ -1,4 +1,5 @@
 export class Evento
 {
-    constructor(name: string, year:Number, month: Number, date: Number, description: string, lat: Number, Long: Number){}
+    constructor(public name: string, public year:Number, public month: Number, public date: Number, 
+        public description: string, public lat: Number, public Long: Number){}
 }

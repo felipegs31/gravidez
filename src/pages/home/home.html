@@ -1,17 +1,40 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-row class="feeling" justify-content-center align-items-center>
+    <ion-col col-8>
+      <p>
+        <font size="3">Como você está se sentindo?</font>
+      </p>
+    </ion-col>
+    <ion-col col-2>
+      <button ion-fab outline color="secondary" (tap)="presentToast()">
+          <ion-icon name="happy" ></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col col-2>
+      <button ion-fab outline color="danger" (tap)="doCheckbox()">
+        <ion-icon name="sad" ></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+  <img src="assets/imgs/pregnant.png">
+  <ion-row class="data" justify-content-center align-items-center>
+    <ion-col col-3>
+      <p>
+        <font size="6">12</font>
+        <br> semanas</p>
+    </ion-col>
+    <ion-col col-4>
+    </ion-col>
+    <ion-col col-3>
+      <p>
+        <font size="6">2</font>
+        <br> Quilogramas</p>
+    </ion-col>
+  </ion-row>
 </ion-content>

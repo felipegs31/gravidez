@@ -19,6 +19,7 @@ import {
   AngularFireDatabase
 } from "angularfire2/database";
 import { Evento } from "../../models/Evento";
+import { DatabaseProvider } from '../../providers/database/database';
 
 
 /**
@@ -40,7 +41,7 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private toastCtrl: ToastController, private fireAuth: AngularFireAuth,
-    private db: AngularFireDatabase) {}
+    private db: DatabaseProvider) {}
 
 
   ionViewDidLoad() {
@@ -57,16 +58,15 @@ export class LoginPage {
   }
 
   signIn() {
-    //this.navCtrl.push(TabsPage);
+
+    this.db.createUserRelation("01");
+    this.navCtrl.push(TabsPage);
     // this.fireAuth.auth.signInAndRetrieveDataWithEmailAndPassword(this.email, this.password)
     // .then(
     //   (data) =>
     //   {
     //     console.log(data);
     //   });
-      const shirtsRef = this.db.list<Evento>('eventos');
-      shirtsRef.push(new Evento("Event1",2018,1,12,"Complex description",10,12));
-      // shirtsRef.snapshotChanges().map(changes => {return changes.map(c => console.log(c))})
-      
+
   }
 }

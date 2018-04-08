@@ -1,4 +1,4 @@
 export class Vacina
 {
-    constructor(name: string , description: string, taken: Date, image64:string){}
+    constructor(public name: string , public description: string, public taken: Date, public image64:string){}
 }
