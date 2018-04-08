@@ -26,7 +26,7 @@
         <ion-col col-12 style="margin: 15px 0px;
                 font-size: 16px;
                 text-align: center;">
-            Data Selecionada: {{textData}}
+            Data Selecionada: <br>{{textData}}
           </ion-col>
       </ion-row>
     </ion-grid>
@@ -35,9 +35,22 @@
       block
       (click)="goToMaps()"
       [disabled] = "disableButtonMap()"
+      color="dark"
       >Procurar Localidade</button>
 
   </ion-list>
+
+  <ion-list *ngIf="tipoEv === 'Atividades'">
+    <div class="headerList">
+      Atividades Recomendadas
+    </div>
+    <ion-item *ngFor="let ativ of atividadesRecomendadas;">
+      <h2>{{ativ.name}}</h2>
+      <p>{{ativ.description}}</p>
+      <button ion-button clear item-end (click)="procurarAtividade(ativ)" color="secondary">Procurar</button>
+    </ion-item>
+  </ion-list>  
+
   <ion-grid>
     <ion-row>
       <ion-col col-6>

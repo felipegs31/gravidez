@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, ToastController, NavParams } from 'ionic-angular';
+import { NavController, AlertController, ToastController, NavParams, ModalController } from 'ionic-angular';
 import { DatabaseProvider } from '../../providers/database/database';
 import { PacienteService } from '../../services/PacienteService';
+import { MapPage } from '../map/map';
 
 @Component({
   selector: 'page-home',
@@ -13,7 +14,7 @@ export class HomePage {
   testCheckboxResult: any;
 
   constructor(public navCtrl: NavController, public navParams : NavParams, public alertCtrl : AlertController, public toastCtrl : ToastController,
-        public db : DatabaseProvider, public pacienteService : PacienteService) 
+        public db : DatabaseProvider, public pacienteService : PacienteService, private modalCtrl: ModalController) 
   {
     console.log(this.pacienteService.getPacienteId());  
   }
@@ -39,7 +40,14 @@ export class HomePage {
     let alert = this.alertCtrl.create({
       title: 'Já pensou em Yoga ?',
       subTitle: 'O yoga pode auxiliar a ter um parto saudável e seguro, dentre outras vantagens.',
-      buttons: ['Gostei']
+      buttons: [{text:'Gostei', handler:() => {
+        const modal = this.modalCtrl.create(MapPage, {tipoEv: 'Yoga'} );
+          modal.present();
+          modal.onDidDismiss(
+            () => {
+        }
+      );
+      }}]
     });
 
     alert.present();
@@ -47,7 +55,7 @@ export class HomePage {
 
   doCheckbox() {
     let alert = this.alertCtrl.create();
-    alert.setTitle('Which planets have you visited?');
+    alert.setTitle('Como você está se sentindo?');
 
     alert.addInput({
         type: 'checkbox',

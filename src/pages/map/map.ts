@@ -76,6 +76,24 @@ export class MapPage implements OnInit {
     preco: 150,
     planoSaude: 'Unimed',
     avaliacao: 3
+  },
+  { 
+    type: 'Yoga',
+    name:'Ibrata',
+    lat: -23.003481,
+    long: -43.360442,
+    preco: 150,
+    planoSaude: 'Unimed',
+    avaliacao: 4
+  },
+  { 
+    type: 'Yoga',
+    name: 'Sol Nacente',
+    lat: -23.003718,
+    long: -43.370914,
+    preco: 150,
+    planoSaude: 'Unimed',
+    avaliacao: 5
   }
   ];
   type:string;
@@ -83,6 +101,7 @@ export class MapPage implements OnInit {
               public navParams: NavParams,
               private viewCtrl: ViewController) {
                 this.type = this.navParams.get('tipoEv');
+                console.log(this.type)
               }
   
   ngOnInit(){

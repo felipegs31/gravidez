@@ -18,6 +18,24 @@ export class CreateEventPage {
     'Atividades'    
     ]
   tipoEv = "";
+  atividadesRecomendadas = [
+    {
+      name: 'Yoga',
+      description: 'Melhora o desempenho sexual e a qualidade do sono.'
+    },
+    {
+      name: 'Natação',
+      description: 'Melhora a postura: aumenta a flexibilidade'
+    },
+    {
+      name: 'Pilates',
+      description: 'Aumento da Resistência Física e Mental.'
+    },
+    {
+      name: 'Meditação',
+      description: 'Diminui a ansiedade, melhora a depressão'
+    }
+  ]
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private viewCtrl: ViewController,
@@ -39,6 +57,16 @@ export class CreateEventPage {
 
   onSave() {
     console.log(this.selectedDate);
+  }
+
+  procurarAtividade(ativ) {
+    console.log(ativ);
+    const modal = this.modalCtrl.create(MapPage, {tipoEv: ativ.name} );
+      modal.present();
+      modal.onDidDismiss(
+        () => {
+        }
+    );
   }
 
   goToMaps() {
